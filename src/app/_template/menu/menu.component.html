@@ -1,0 +1,26 @@
+
+
+
+<nav>
+  <div class="nav-wrapper white">
+    <a routerLink="/home" class="brand-logo"><img src="assets/img/img.png" style="height: 57px; width: 110px;" alt="image"/></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li class="tab"><a *ngIf="!authentic.isUserLoggin()" routerLink="/login">Login</a></li>
+      <li class="tab"><a *ngIf="!authentic.isUserLoggin()" routerLink="/register">Register</a></li>
+      <li class="tab"><a *ngIf="authentic.isUserLoggin()" class="active" routerLink="/logout">Logout</a></li>
+      <li class="tab disabled"><a *ngIf="authentic.isUserLoggin()" [routerLink]="['products', id]">Products</a></li>
+      <li class="tab disabled"><a *ngIf="authentic.isUserLoggin()" [routerLink]="['profile', id]">Profile</a></li>
+      <li class="tab"><a *ngIf="authentic.isUserLoggin()" routerLink="/home" >home</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li class="tab"><a *ngIf="!authentic.isUserLoggin()" routerLink="/login">Login</a></li>
+      <li class="tab"><a *ngIf="!authentic.isUserLoggin()" routerLink="/register">Register</a></li>
+      <li class="tab"><a *ngIf="authentic.isUserLoggin()" class="active" routerLink="/logout">Logout</a></li>
+      <li class="tab disabled"><a *ngIf="authentic.isUserLoggin()" [routerLink]="['products', id]">Products</a></li>
+      <li class="tab disabled"><a *ngIf="authentic.isUserLoggin()" [routerLink]="['profile', id]">Profile</a></li>
+      <li class="tab"><a *ngIf="authentic.isUserLoggin()" routerLink="/home" >home</a></li>
+    </ul>
+  </div>
+</nav>
+

@@ -1,0 +1,61 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-offset-5 col-md-3">
+      <div class="form-login">
+        <form [formGroup]="addForm" (ngSubmit)="createProduct()" novalidate>
+          <div class="form-group">
+            <label for="name" >Product name :</label>
+            <input type="text" formControlName="name" id="name" class="form-control input-sm chat-input"   required  />
+
+            <div *ngIf="addForm.controls['name'].invalid && (addForm.controls['name'].dirty || addForm.controls['name'].touched)" class="alert">
+              <div  *ngIf="addForm.controls['name'].errors?.['required']" class="alert alert-warning">
+                Please enter a valid description
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="product_type">Product type :</label>
+            <input type="text" formControlName="product_type" id="product_type" class="form-control input-sm chat-input"  />
+            <div *ngIf="addForm.controls['product_type'].invalid && (addForm.controls['product_type'].dirty || addForm.controls['product_type'].touched)" class="alert">
+              <div  *ngIf="addForm.controls['product_type'].errors?.['required']" class="alert alert-warning">
+                Please enter a valid product type
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="qtt">Quantité :</label>
+            <input type="number" formControlName="qtt" id="qtt" class="form-control input-sm chat-input"  />
+            <div *ngIf="addForm.controls['qtt'].invalid && (addForm.controls['qtt'].dirty || addForm.controls['qtt'].touched)" class="alert">
+              <div  *ngIf="addForm.controls['qtt'].errors?.['required']" class="alert alert-warning">
+                Please enter a valid number
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Price :</label>
+            <input type="number" formControlName="price" id="price" class="form-control input-sm chat-input"  />
+            <div *ngIf="addForm.controls['price'].invalid && (addForm.controls['price'].dirty || addForm.controls['price'].touched)" class="alert">
+              <div  *ngIf="addForm.controls['price'].errors?.['required']" class="alert alert-warning">
+                Please enter a valid number
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button [disabled]="addForm.controls['price'].invalid
+                    && addForm.controls['name'].invalid
+              " class="btn btn-primary">
+              <span class="spinner-border spinner-border-sm mr-1" ></span>
+              Add products
+            </button>||
+            <a (click)="return()" class="btn btn-link">Cancel</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+

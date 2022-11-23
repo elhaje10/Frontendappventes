@@ -1,0 +1,34 @@
+<div class="alert alert-success"  *ngIf="message">{{message}}</div>
+<div class="container" *ngIf="user">
+  <br>
+  <div class="alert alert-warning" *ngIf="userForm.dirty && userForm.invalid"> Enter a valid Value</div>
+
+
+  <form (ngSubmit)="!userForm.invalid && updateUser()" #userForm="ngForm">
+    <fieldset class="form-group">
+      <label for="email"> email    </label>
+      <input type="email" class="form-control"  name="email" id="email"
+             [(ngModel)]="user.email" required #user.name="ngModel">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="firstname"> Firstname    </label>
+      <input type="text" class="form-control"  name="firstname" id="firstname"
+             [(ngModel)]="user.firstname" required #user.firstname="ngModel">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="lastname"> Lastname    </label>
+      <input type="text" class="form-control"  name="lastname" id="lastname"
+             [(ngModel)]="user.lastname" required #user.lastname="ngModel">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="password"> Password    </label>
+      <input type="password" class="form-control"  name="password" id="password"
+             [(ngModel)]="user.password" required #user.password="ngModel">
+    </fieldset>
+    <div class="alert alert-warning" *ngIf="userForm.dirty "> Enter a valid Description</div>
+    <br>
+    <button type="submit" class="btn btn-success" >Update</button>
+    ||
+    <a (click)="return()" class="btn btn-link">Cancel</a>
+  </form>
+</div>

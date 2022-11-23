@@ -1,0 +1,24 @@
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="alert alert-warning"  *ngIf="InvalidLogin">{{errorMessage}}</div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="email" class="validate" id="email" name="email" placeholder="xxxx@xxxx.com" type="email">
+        <label for="email">email</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="password" id="password" type="password" name="password" class="validate">
+        <label for="password">password</label>
+      </div>
+    </div>
+
+    <button class="btn waves-effect waves-light" (click)="handleBasiclogin()">Submit
+      <i class="material-icons right">send</i>
+    </button>
+    ||
+    <a class="waves-effect waves-light btn"  routerLink="/register">Register</a>
+    ||
+    <a class="waves-effect waves-light btn" (click)="editPassword()">forget password?</a>
+
+  </form>
+</div>

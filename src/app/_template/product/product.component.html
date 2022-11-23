@@ -1,0 +1,34 @@
+<div class="alert alert-success"  *ngIf="message">{{message}}</div>
+<div class="container" *ngIf="product">
+  <br>
+  <div class="alert alert-warning" *ngIf="productForm.dirty && productForm.invalid"> Enter a valid Value</div>
+
+
+  <form (ngSubmit)="!productForm.invalid && updateProduct()" #productForm="ngForm">
+    <fieldset class="form-group">
+      <label for="name"> Name    </label>
+      <input type="text" class="form-control"  name="name" id="name"
+             [(ngModel)]="product.name" required #product.name="ngModel">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="producttype"> product type    </label>
+      <input type="text" class="form-control"  name="producttype" id="producttype"
+             [(ngModel)]="product.producttype" required #product.producttype="ngModel">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="price"> Price    </label>
+      <input type="number" class="form-control"  name="price" id="price"
+             [(ngModel)]="product.price" required #product.price="ngModel">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="qtt"> Qtt    </label>
+      <input type="number" class="form-control"  name="qtt" id="qtt"
+             [(ngModel)]="product.qtt" required #product.qtt="ngModel">
+    </fieldset>
+    <div class="alert alert-warning" *ngIf="productForm.dirty "> Enter a valid Description</div>
+    <br>
+    <button type="submit" class="btn btn-success" >Update</button>
+    ||
+    <a class="waves-effect waves-light btn" (click)="delete()">Delete</a>
+  </form>
+</div>
